@@ -1,5 +1,5 @@
 
-# Replace 'path_to_excel_files' with the path to your directory containing Excel files
+# Replace 'path_to_excel_files' with the path to directory containing Excel files
 directory_path = 'path_to_excel_files'
 excel_dicts = {}
 
