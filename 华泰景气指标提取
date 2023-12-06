@@ -1,0 +1,22 @@
+
+# Replace 'path_to_excel_files' with the path to your directory containing Excel files
+directory_path = 'path_to_excel_files'
+excel_dicts = {}
+
+# Iterate through each file in the directory
+for filename in os.listdir(directory_path):
+    if filename.endswith(".xlsx"):  # Assuming Excel files have .xlsx extension
+        file_path = os.path.join(directory_path, filename)
+
+        # Read the Excel file into a DataFrame
+        df = pd.read_excel(file_path)
+
+        # Create a dictionary with elements and their counts
+        elements_count = df.stack().value_counts().to_dict()
+
+        # Store the dictionary with file name as the key
+        excel_dicts[filename] = elements_count
+
+# Print or use the dictionaries as needed
+for file_name, elements_count in excel_dicts.items():
+    print(f"Dictionary for {file_name}:\n{elements_count}\n")
